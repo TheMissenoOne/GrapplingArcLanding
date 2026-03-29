@@ -144,9 +144,9 @@
             padding-top: 72px;
             position: relative;
             overflow: hidden;
-            background: radial-gradient(ellipse at 30% 20%, rgba(47, 107, 255, 0.15) 0%, transparent 50%),
-                        radial-gradient(ellipse at 70% 80%, rgba(122, 63, 255, 0.1) 0%, transparent 40%),
-                        var(--surface-bg-dark);
+            background: radial-gradient(ellipse at 30% 20%, rgba(0, 93, 155, 0.2) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(192, 132, 252, 0.1) 0%, transparent 40%),
+                        #000000;
         }
 
         .hero .container {
@@ -273,12 +273,12 @@
         .phone-mockup {
             width: 300px;
             height: 600px;
-            background: var(--surface-card);
+            background: #000000;
             border-radius: 40px;
-            border: 3px solid var(--border-default);
+            border: 3px solid #005d9b;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 60px var(--accent-glow);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 93, 155, 0.3);
         }
 
         .phone-notch {
@@ -288,7 +288,7 @@
             transform: translateX(-50%);
             width: 120px;
             height: 28px;
-            background: var(--surface-bg-dark);
+            background: #000000;
             border-radius: 20px;
             z-index: 10;
         }
@@ -296,36 +296,36 @@
         .phone-screen {
             width: 100%;
             height: 100%;
-            padding: 60px 20px 20px;
+            padding: 60px 16px 20px;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
+            background: #000000;
         }
 
         .app-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 4px;
         }
 
         .app-logo-small {
             width: 32px;
             height: 32px;
-            background: var(--gradient-primary);
+            background: #005d9b;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1rem;
-            box-shadow: 0 2px 8px var(--accent-glow);
         }
 
         .app-avatar {
             width: 32px;
             height: 32px;
-            background: linear-gradient(135deg, var(--belt-blue) 0%, var(--belt-purple) 100%);
+            background: #005d9b;
             border-radius: 50%;
-            box-shadow: 0 0 12px var(--accent-glow);
         }
 
         .app-belt-badge {
@@ -334,23 +334,22 @@
             gap: 6px;
             font-size: 0.625rem;
             font-weight: 600;
-            color: var(--belt-blue);
+            color: #005d9b;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .app-belt-badge::before {
             content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--belt-blue);
+            width: 6px;
+            height: 6px;
+            background: #005d9b;
             border-radius: 50%;
-            box-shadow: 0 0 8px var(--accent-glow);
         }
 
         .app-card {
-            background: var(--surface-card-light);
-            border: 1px solid var(--border-default);
+            background: #1a1a1a;
+            border: 1px solid #005d9b;
             border-radius: 16px;
             padding: 16px;
         }
@@ -365,37 +364,37 @@
         .app-card-title {
             font-weight: 600;
             font-size: 0.875rem;
-            color: var(--text-primary);
+            color: #ffffff;
         }
 
         .app-graph-container {
-            height: 100px;
+            height: 80px;
             position: relative;
+            margin-bottom: 12px;
         }
 
         .app-graph-node {
             position: absolute;
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            background: var(--belt-blue);
-            box-shadow: 0 0 10px var(--accent-glow);
+            background: #005d9b;
         }
 
         .app-graph-node:nth-child(1) { top: 20%; left: 15%; }
         .app-graph-node:nth-child(2) { top: 40%; left: 30%; }
-        .app-graph-node:nth-child(3) { top: 15%; left: 45%; }
-        .app-graph-node:nth-child(4) { top: 55%; left: 50%; }
-        .app-graph-node:nth-child(5) { top: 30%; left: 65%; }
-        .app-graph-node:nth-child(6) { top: 70%; left: 70%; }
-        .app-graph-node:nth-child(7) { top: 45%; left: 80%; }
-        .app-graph-node:nth-child(8) { top: 25%; left: 50%; background: var(--belt-purple); }
+        .app-graph-node:nth-child(3) { top: 15%; left: 50%; }
+        .app-graph-node:nth-child(4) { top: 50%; left: 60%; }
+        .app-graph-node:nth-child(5) { top: 30%; left: 75%; }
+        .app-graph-node:nth-child(6) { top: 65%; left: 45%; }
+        .app-graph-node:nth-child(7) { top: 55%; left: 25%; }
+        .app-graph-node:nth-child(8) { top: 35%; left: 45%; background: #c084fc; }
 
         .app-graph-line {
             position: absolute;
-            background: var(--border-strong);
+            background: #005d9b;
             height: 1px;
-            transform-origin: left center;
+            opacity: 0.5;
         }
 
         .app-elo-display {
@@ -404,23 +403,23 @@
             gap: 8px;
             margin-top: 12px;
             padding-top: 12px;
-            border-top: 1px solid var(--border-default);
+            border-top: 1px solid #333333;
         }
 
         .elo-label {
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: #a0a0a0;
         }
 
         .elo-value {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--belt-blue);
+            color: #005d9b;
         }
 
         .elo-change {
             font-size: 0.75rem;
-            color: #4CAF50;
+            color: #22c55e;
         }
 
         .app-session-list {
@@ -434,15 +433,15 @@
             align-items: center;
             gap: 12px;
             padding: 12px;
-            background: var(--surface-card);
-            border: 1px solid var(--border-default);
+            background: #1a1a1a;
+            border: 1px solid #333333;
             border-radius: 12px;
         }
 
         .session-icon {
             width: 36px;
             height: 36px;
-            background: var(--surface-card-light);
+            background: #333333;
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -456,11 +455,12 @@
         .session-title {
             font-size: 0.875rem;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .session-subtitle {
             font-size: 0.75rem;
-            color: var(--text-muted);
+            color: #a0a0a0;
         }
 
         .features {
