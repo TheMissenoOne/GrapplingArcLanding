@@ -663,6 +663,64 @@
             margin-right: auto;
         }
 
+        .signup-form {
+            max-width: 400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-strong);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .signup-form .btn-primary {
+            width: 100%;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 32px;
+            background: var(--surface-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-default);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-success h3 {
+            color: var(--accent-light);
+            margin-bottom: 8px;
+        }
+
+        .form-success p {
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
         footer {
             padding: 48px 0;
             background: var(--surface-bg-dark);
@@ -994,13 +1052,26 @@
             </div>
             <h2>Join the Beta</h2>
             <p>Sign up to participate in our testing phase and receive updates.</p>
-            <div class="hero-buttons" style="justify-content: center;">
-                <a href="https://forms.gle/nnPNuVky5aXKPmND8" class="btn-primary" target="_blank" rel="noopener">
+            
+            <form id="beta-signup-form" class="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdyUkP6oM0C2qwK0JqVXhNqJ9qK6VXhNqJ9qK6VXhNqJ9q/formResponse" method="POST" target="hidden-iframe">
+                <div class="form-group">
+                    <input type="text" name="entry.123456789" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="entry.987654321" placeholder="Your Email" required>
+                </div>
+                <button type="submit" class="btn-primary">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
                     Sign Up for Beta
-                </a>
+                </button>
+            </form>
+            <iframe name="hidden-iframe" id="hidden-iframe" style="display:none;"></iframe>
+            <div id="form-success" class="form-success" style="display: none;">
+                <h3>Thank You!</h3>
+                <p>You've been added to our beta list. We'll be in touch soon.</p>
             </div>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 16px;">
+            
+            <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 24px;">
                 Public release coming soon.
             </p>
         </div>
@@ -1019,5 +1090,14 @@
             <p class="footer-copy">&copy; 2026 GrapplingArc.</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('beta-signup-form').addEventListener('submit', function() {
+            setTimeout(function() {
+                document.getElementById('beta-signup-form').style.display = 'none';
+                document.getElementById('form-success').style.display = 'block';
+            }, 500);
+        });
+    </script>
 </body>
 </html>
