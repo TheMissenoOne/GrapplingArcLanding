@@ -90,13 +90,12 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: var(--gradient-primary);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
             border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            box-shadow: 0 4px 16px var(--accent-glow);
         }
 
         .nav-links {
@@ -779,7 +778,7 @@
     <nav>
         <div class="container">
             <a href="#" class="logo">
-                <div class="logo-icon">🥋</div>
+                <div class="logo-icon"><img src="logo.svg" alt="GrapplingArc"></div>
                 GrapplingArc
             </a>
             <ul class="nav-links">
@@ -820,7 +819,7 @@
                     </div>
                     <div class="stat">
                         <div class="stat-value">Free</div>
-                        <div class="stat-label">Open Source</div>
+                        <div class="stat-label">Beta</div>
                     </div>
                 </div>
             </div>
@@ -1006,7 +1005,7 @@
                 </a>
             </div>
             <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 16px;">
-                Public release coming soon. <a href="https://github.com/anomalyco/GrapplingArc" style="color: var(--accent-light);">Star us on GitHub</a> to get notified.
+                Public release coming soon.
             </p>
         </div>
     </section>
@@ -1014,15 +1013,14 @@
     <footer>
         <div class="container">
             <a href="#" class="logo">
-                <div class="logo-icon">🥋</div>
+                <div class="logo-icon"><img src="logo.svg" alt="GrapplingArc"></div>
                 GrapplingArc
             </a>
             <ul class="footer-links">
                 <li><a href="#">Privacy</a></li>
                 <li><a href="#">Terms</a></li>
-                <li><a href="https://github.com/anomalyco/GrapplingArc" target="_blank" rel="noopener">GitHub</a></li>
             </ul>
-            <p class="footer-copy">&copy; 2026 GrapplingArc. Open source.</p>
+            <p class="footer-copy">&copy; 2026 GrapplingArc.</p>
         </div>
     </footer>
 </body>
