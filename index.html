@@ -17,18 +17,28 @@
         }
 
         :root {
-            --color-bg: #0a0a0f;
-            --color-bg-secondary: #12121a;
-            --color-bg-tertiary: #1a1a25;
-            --color-accent: #e63946;
-            --color-accent-light: #ff6b6b;
-            --color-accent-glow: rgba(230, 57, 70, 0.4);
-            --color-text: #f8f9fa;
-            --color-text-muted: #adb5bd;
-            --color-text-dim: #6c757d;
-            --color-border: #2a2a35;
-            --gradient-primary: linear-gradient(135deg, #e63946 0%, #ff6b6b 100%);
-            --gradient-dark: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
+            --surface-bg: #0A0A0A;
+            --surface-bg-dark: #050505;
+            --surface-card: #121212;
+            --surface-card-light: #161616;
+            --text-primary: #F2F2F2;
+            --text-secondary: #B6B6B6;
+            --text-muted: #757575;
+            --border-default: #242424;
+            --border-strong: #353535;
+            
+            --belt-white: #FFFFFF;
+            --belt-blue: #2F6BFF;
+            --belt-purple: #7A3FFF;
+            --belt-brown: #8B5A2B;
+            --belt-black: #EAEAEA;
+            
+            --accent: var(--belt-blue);
+            --accent-glow: rgba(47, 107, 255, 0.35);
+            --accent-light: #5B8AFF;
+            
+            --gradient-primary: linear-gradient(135deg, #2F6BFF 0%, #5B8AFF 100%);
+            --gradient-dark: linear-gradient(180deg, #0A0A0A 0%, #121212 100%);
         }
 
         html {
@@ -37,8 +47,8 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--color-bg);
-            color: var(--color-text);
+            background-color: var(--surface-bg);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -49,16 +59,15 @@
             padding: 0 24px;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
-            background: rgba(10, 10, 15, 0.8);
+            background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--color-border);
+            border-bottom: 1px solid var(--border-default);
         }
 
         nav .container {
@@ -74,7 +83,7 @@
             gap: 12px;
             font-size: 1.5rem;
             font-weight: 800;
-            color: var(--color-text);
+            color: var(--text-primary);
             text-decoration: none;
         }
 
@@ -87,6 +96,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.25rem;
+            box-shadow: 0 4px 16px var(--accent-glow);
         }
 
         .nav-links {
@@ -96,14 +106,14 @@
         }
 
         .nav-links a {
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--color-text);
+            color: var(--text-primary);
         }
 
         .nav-cta {
@@ -118,10 +128,9 @@
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px var(--color-accent-glow);
+            box-shadow: 0 8px 24px var(--accent-glow);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -129,19 +138,9 @@
             padding-top: 72px;
             position: relative;
             overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, var(--color-accent-glow) 0%, transparent 70%);
-            opacity: 0.3;
-            pointer-events: none;
+            background: radial-gradient(ellipse at 30% 20%, rgba(47, 107, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(122, 63, 255, 0.1) 0%, transparent 40%),
+                        var(--surface-bg-dark);
         }
 
         .hero .container {
@@ -160,22 +159,22 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--color-bg-tertiary);
-            border: 1px solid var(--color-border);
+            background: var(--surface-card);
+            border: 1px solid var(--border-default);
             padding: 8px 16px;
             border-radius: 100px;
             font-size: 0.875rem;
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             margin-bottom: 24px;
         }
 
         .hero-badge span {
-            color: var(--color-accent-light);
+            color: var(--accent-light);
             font-weight: 600;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 24px;
@@ -190,7 +189,7 @@
 
         .hero-description {
             font-size: 1.25rem;
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             margin-bottom: 40px;
             max-width: 500px;
         }
@@ -213,17 +212,18 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            box-shadow: 0 4px 16px var(--accent-glow);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 32px var(--color-accent-glow);
+            box-shadow: 0 8px 32px var(--accent-glow);
         }
 
         .btn-secondary {
-            background: var(--color-bg-tertiary);
-            border: 1px solid var(--color-border);
-            color: var(--color-text);
+            background: var(--surface-card);
+            border: 1px solid var(--border-strong);
+            color: var(--text-primary);
             padding: 16px 32px;
             border-radius: 12px;
             text-decoration: none;
@@ -233,8 +233,8 @@
         }
 
         .btn-secondary:hover {
-            background: var(--color-bg-secondary);
-            border-color: var(--color-text-dim);
+            background: var(--surface-card-light);
+            border-color: var(--text-muted);
         }
 
         .hero-stats {
@@ -249,15 +249,14 @@
         .stat-value {
             font-size: 2rem;
             font-weight: 800;
-            color: var(--color-text);
+            color: var(--text-primary);
         }
 
         .stat-label {
             font-size: 0.875rem;
-            color: var(--color-text-dim);
+            color: var(--text-muted);
         }
 
-        /* Phone Mockup */
         .hero-visual {
             position: relative;
             display: flex;
@@ -268,12 +267,12 @@
         .phone-mockup {
             width: 300px;
             height: 600px;
-            background: var(--color-bg-secondary);
+            background: var(--surface-card);
             border-radius: 40px;
-            border: 3px solid var(--color-border);
+            border: 3px solid var(--border-default);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5), 0 0 60px var(--accent-glow);
         }
 
         .phone-notch {
@@ -283,7 +282,7 @@
             transform: translateX(-50%);
             width: 120px;
             height: 28px;
-            background: var(--color-bg);
+            background: var(--surface-bg-dark);
             border-radius: 20px;
             z-index: 10;
         }
@@ -312,17 +311,40 @@
             align-items: center;
             justify-content: center;
             font-size: 1rem;
+            box-shadow: 0 2px 8px var(--accent-glow);
         }
 
         .app-avatar {
             width: 32px;
             height: 32px;
-            background: var(--color-bg-tertiary);
+            background: linear-gradient(135deg, var(--belt-blue) 0%, var(--belt-purple) 100%);
             border-radius: 50%;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .app-belt-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: var(--belt-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .app-belt-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--belt-blue);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-glow);
         }
 
         .app-card {
-            background: var(--color-bg-tertiary);
+            background: var(--surface-card-light);
+            border: 1px solid var(--border-default);
             border-radius: 16px;
             padding: 16px;
         }
@@ -337,29 +359,62 @@
         .app-card-title {
             font-weight: 600;
             font-size: 0.875rem;
+            color: var(--text-primary);
         }
 
-        .app-card-badge {
-            background: var(--color-accent);
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.625rem;
-            font-weight: 600;
+        .app-graph-container {
+            height: 100px;
+            position: relative;
         }
 
-        .app-graph {
-            height: 80px;
+        .app-graph-node {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--belt-blue);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .app-graph-node:nth-child(1) { top: 20%; left: 15%; }
+        .app-graph-node:nth-child(2) { top: 40%; left: 30%; }
+        .app-graph-node:nth-child(3) { top: 15%; left: 45%; }
+        .app-graph-node:nth-child(4) { top: 55%; left: 50%; }
+        .app-graph-node:nth-child(5) { top: 30%; left: 65%; }
+        .app-graph-node:nth-child(6) { top: 70%; left: 70%; }
+        .app-graph-node:nth-child(7) { top: 45%; left: 80%; }
+        .app-graph-node:nth-child(8) { top: 25%; left: 50%; background: var(--belt-purple); }
+
+        .app-graph-line {
+            position: absolute;
+            background: var(--border-strong);
+            height: 1px;
+            transform-origin: left center;
+        }
+
+        .app-elo-display {
             display: flex;
-            align-items: flex-end;
-            gap: 4px;
+            align-items: center;
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-default);
         }
 
-        .graph-bar {
-            flex: 1;
-            background: var(--gradient-primary);
-            border-radius: 2px 2px 0 0;
-            opacity: 0.7;
+        .elo-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .elo-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--belt-blue);
+        }
+
+        .elo-change {
+            font-size: 0.75rem;
+            color: #4CAF50;
         }
 
         .app-session-list {
@@ -373,14 +428,15 @@
             align-items: center;
             gap: 12px;
             padding: 12px;
-            background: var(--color-bg-secondary);
+            background: var(--surface-card);
+            border: 1px solid var(--border-default);
             border-radius: 12px;
         }
 
         .session-icon {
             width: 36px;
             height: 36px;
-            background: var(--color-bg-tertiary);
+            background: var(--surface-card-light);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -398,10 +454,9 @@
 
         .session-subtitle {
             font-size: 0.75rem;
-            color: var(--color-text-dim);
+            color: var(--text-muted);
         }
 
-        /* Features Section */
         .features {
             padding: 120px 0;
             background: var(--gradient-dark);
@@ -416,7 +471,7 @@
 
         .section-label {
             display: inline-block;
-            color: var(--color-accent-light);
+            color: var(--accent-light);
             font-weight: 600;
             font-size: 0.875rem;
             text-transform: uppercase;
@@ -432,32 +487,34 @@
 
         .section-description {
             font-size: 1.125rem;
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
+            gap: 24px;
         }
 
         .feature-card {
-            background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border);
-            border-radius: 20px;
+            background: var(--surface-card);
+            border: 1px solid var(--border-default);
+            border-radius: 16px;
             padding: 32px;
-            transition: transform 0.3s, border-color 0.3s;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
 
         .feature-card:hover {
             transform: translateY(-8px);
-            border-color: var(--color-accent);
+            border-color: var(--accent);
+            box-shadow: 0 8px 32px rgba(47, 107, 255, 0.15);
         }
 
         .feature-icon {
             width: 56px;
             height: 56px;
-            background: var(--color-bg-tertiary);
+            background: var(--surface-card-light);
+            border: 1px solid var(--border-default);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -473,14 +530,58 @@
         }
 
         .feature-card p {
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             font-size: 0.9375rem;
         }
 
-        /* How It Works */
+        .belts-section {
+            padding: 80px 0;
+            background: var(--surface-bg-dark);
+            text-align: center;
+        }
+
+        .belts-grid {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 48px;
+            flex-wrap: wrap;
+        }
+
+        .belt-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .belt-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            color: var(--surface-bg);
+        }
+
+        .belt-circle.white { background: var(--belt-white); }
+        .belt-circle.blue { background: var(--belt-blue); box-shadow: 0 0 20px var(--accent-glow); }
+        .belt-circle.purple { background: var(--belt-purple); box-shadow: 0 0 20px rgba(122, 63, 255, 0.35); }
+        .belt-circle.brown { background: var(--belt-brown); }
+        .belt-circle.black { background: var(--belt-black); border: 2px solid var(--border-strong); }
+
+        .belt-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: capitalize;
+        }
+
         .how-it-works {
             padding: 120px 0;
-            background: var(--color-bg);
+            background: var(--surface-bg);
         }
 
         .steps {
@@ -508,6 +609,7 @@
             font-size: 1.25rem;
             font-weight: 800;
             flex-shrink: 0;
+            box-shadow: 0 4px 16px var(--accent-glow);
         }
 
         .step-content h3 {
@@ -517,11 +619,10 @@
         }
 
         .step-content p {
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             font-size: 1rem;
         }
 
-        /* CTA Section */
         .cta {
             padding: 120px 0;
             background: var(--gradient-dark);
@@ -538,8 +639,8 @@
             transform: translate(-50%, -50%);
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
-            opacity: 0.2;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0.3;
             pointer-events: none;
         }
 
@@ -556,18 +657,17 @@
 
         .cta p {
             font-size: 1.25rem;
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             margin-bottom: 40px;
             max-width: 500px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Footer */
         footer {
             padding: 48px 0;
-            background: var(--color-bg);
-            border-top: 1px solid var(--color-border);
+            background: var(--surface-bg-dark);
+            border-top: 1px solid var(--border-default);
         }
 
         footer .container {
@@ -583,22 +683,21 @@
         }
 
         .footer-links a {
-            color: var(--color-text-dim);
+            color: var(--text-muted);
             text-decoration: none;
             font-size: 0.875rem;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--color-text);
+            color: var(--text-primary);
         }
 
         .footer-copy {
-            color: var(--color-text-dim);
+            color: var(--text-muted);
             font-size: 0.875rem;
         }
 
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero .container {
                 grid-template-columns: 1fr;
@@ -614,7 +713,7 @@
             }
 
             .hero h1 {
-                font-size: 3rem;
+                font-size: 2.75rem;
             }
 
             .hero-description {
@@ -641,7 +740,7 @@
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
             }
 
             .hero-stats {
@@ -657,6 +756,10 @@
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
+            }
+
+            .belts-grid {
+                gap: 16px;
             }
 
             footer .container {
@@ -681,6 +784,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Features</a></li>
+                <li><a href="#belts">Belts</a></li>
                 <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#download">Download</a></li>
             </ul>
@@ -692,11 +796,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span>New:</span> ELO Rating System for Techniques
+                    <span>New:</span> Belt-Based Theme System
                 </div>
                 <h1>Track Your <span class="highlight">Grappling</span> Journey</h1>
                 <p class="hero-description">
-                    The offline-first app for BJJ practitioners. Track sessions, visualize your technique progress with ELO ratings, and level up your game.
+                    The offline-first mobile app for BJJ practitioners. Track sessions, visualize your technique graph with ELO ratings, and level up your game.
                 </p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn-primary">
@@ -731,17 +835,22 @@
                         <div class="app-card">
                             <div class="app-card-header">
                                 <span class="app-card-title">Technique Graph</span>
-                                <span class="app-card-badge">ELO</span>
+                                <div class="app-belt-badge">Blue Belt</div>
                             </div>
-                            <div class="app-graph">
-                                <div class="graph-bar" style="height: 40%"></div>
-                                <div class="graph-bar" style="height: 60%"></div>
-                                <div class="graph-bar" style="height: 35%"></div>
-                                <div class="graph-bar" style="height: 75%"></div>
-                                <div class="graph-bar" style="height: 50%"></div>
-                                <div class="graph-bar" style="height: 85%"></div>
-                                <div class="graph-bar" style="height: 65%"></div>
-                                <div class="graph-bar" style="height: 90%"></div>
+                            <div class="app-graph-container">
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                                <div class="app-graph-node"></div>
+                            </div>
+                            <div class="app-elo-display">
+                                <span class="elo-label">Technique ELO</span>
+                                <span class="elo-value">1247</span>
+                                <span class="elo-change">+24</span>
                             </div>
                         </div>
                         <div class="app-session-list">
@@ -753,7 +862,7 @@
                                 </div>
                             </div>
                             <div class="app-session-item">
-                                <div class="session-icon">🗣️</div>
+                                <div class="session-icon">📝</div>
                                 <div class="session-info">
                                     <div class="session-title">Open Mat</div>
                                     <div class="session-subtitle">Yesterday, 10:00 AM</div>
@@ -787,7 +896,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">🗺️</div>
                     <h3>Technique Graph</h3>
-                    <p>Visualize your technique network. See connections between positions and submissions.</p>
+                    <p>Visualize your technique network with force-directed graph. See connections between positions.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📝</div>
@@ -797,12 +906,44 @@
                 <div class="feature-card">
                     <div class="feature-icon">💡</div>
                     <h3>Smart Suggestions</h3>
-                    <p>Get AI-powered technique suggestions based on your training patterns and gaps.</p>
+                    <p>Get personalized technique suggestions based on your training patterns and gaps.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📦</div>
                     <h3>Export & Backup</h3>
                     <p>Export your data as JSON bundles. Backup and restore your progress anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="belts-section" id="belts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Personalize</span>
+                <h2 class="section-title">Your Belt, Your Theme</h2>
+                <p class="section-description">The app adapts to your journey with belt-based accent colors.</p>
+            </div>
+            <div class="belts-grid">
+                <div class="belt-item">
+                    <div class="belt-circle white">W</div>
+                    <span class="belt-label">White</span>
+                </div>
+                <div class="belt-item">
+                    <div class="belt-circle blue">B</div>
+                    <span class="belt-label">Blue</span>
+                </div>
+                <div class="belt-item">
+                    <div class="belt-circle purple">P</div>
+                    <span class="belt-label">Purple</span>
+                </div>
+                <div class="belt-item">
+                    <div class="belt-circle brown">Br</div>
+                    <span class="belt-label">Brown</span>
+                </div>
+                <div class="belt-item">
+                    <div class="belt-circle black">BK</div>
+                    <span class="belt-label">Black</span>
                 </div>
             </div>
         </div>
@@ -825,7 +966,7 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3>Track Techniques</h3>
+                        <h3>Build Your Graph</h3>
                         <p>Add techniques to your personal graph. Each technique gets an ELO rating that evolves over time.</p>
                     </div>
                 </div>
@@ -850,7 +991,7 @@
     <section class="cta" id="download">
         <div class="container">
             <h2>Ready to Transform Your Training?</h2>
-            <p>Join thousands of grapplers tracking their journey with GrapplingArc.</p>
+            <p>Join grapplers tracking their journey with GrapplingArc.</p>
             <div class="hero-buttons" style="justify-content: center;">
                 <a href="#" class="btn-primary">
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
